@@ -12,11 +12,11 @@ public class ContactServiceDelegate {
     void listContacts() {
         contactService.listContacts(new AsyncCallback<List<Contact>> () {
                                         public void onFailure(Throwable caught) {
-                                            gui.service_eventListContactsFailed(caught);
+                                            gui.serviceEventListContactsFailed(caught);
                                         }
 
                                         public void onSuccess(List<Contact> result) {
-                                            gui.service_eventListRetrievedFromService(result);
+                                            gui.serviceEventListRetrievedFromService(result);
 
                                         }
                                     }
@@ -26,11 +26,11 @@ public class ContactServiceDelegate {
     void addContact(final Contact contact) {
         contactService.addContact(contact, new AsyncCallback<Void> () {
                     public void onFailure(Throwable caught) {
-                        gui.service_eventAddContactFailed(caught);
+                        gui.serviceEventAddContactFailed(caught);
                     }
 
                     public void onSuccess(Void result) {
-                        gui.service_eventAddContactSuccessful();
+                        gui.serviceEventAddContactSuccessful();
                     }
                 }
         );
@@ -39,11 +39,11 @@ public class ContactServiceDelegate {
     void updateContact(final Contact contact) {
         contactService.updateContact(contact, new AsyncCallback<Void> () {
                     public void onFailure(Throwable caught) {
-                        gui.service_eventUpdateContactFailed(caught);
+                        gui.serviceEventUpdateContactFailed(caught);
                     }
 
                     public void onSuccess(Void result) {
-                        gui.service_eventUpdateSuccessful();
+                        gui.serviceEventUpdateSuccessful();
                     }
                 }
         );
@@ -52,11 +52,11 @@ public class ContactServiceDelegate {
     void removeContact(final Contact contact) {
         contactService.removeContact(contact, new AsyncCallback<Void>() {
                     public void onFailure(Throwable caught) {
-                        gui.service_eventRemoveContactFailed(caught);
+                        gui.serviceEventRemoveContactFailed(caught);
                     }
 
                     public void onSuccess(Void result) {
-                        gui.service_eventRemoveContactSuccessful();
+                        gui.serviceEventRemoveContactSuccessful();
                     }
                 }
         );

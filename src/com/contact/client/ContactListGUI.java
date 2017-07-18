@@ -93,7 +93,7 @@ public class ContactListGUI {
         currentContact.setPhone(phone);
     }
 
-    public void gui_eventContactGridClicked(Cell cellClicked) {
+    public void guiEventContactGridClicked(Cell cellClicked) {
         int row = cellClicked.getRowIndex();
         int col = cellClicked.getCellIndex();
 
@@ -112,7 +112,7 @@ public class ContactListGUI {
     }
 
 
-    public void gui_eventAddButtonClicked() {
+    public void guiEventAddButtonClicked() {
         addNewButton.setVisible(true);
         formGrid.setVisible(false);
         try {
@@ -124,7 +124,7 @@ public class ContactListGUI {
         }
     }
 
-    public void gui_eventUpdateButtonClicked() {
+    public void guiEventUpdateButtonClicked() {
         addNewButton.setVisible(true);
         formGrid.setVisible(false);
         try {
@@ -135,7 +135,7 @@ public class ContactListGUI {
         }
     }
 
-    public void gui_eventAddNewButtonClicked() {
+    public void guiEventAddNewButtonClicked() {
         this.addNewButton.setVisible(false);
         this.updateButton.setVisible(false);
         this.addButton.setVisible(true);
@@ -144,7 +144,7 @@ public class ContactListGUI {
     }
 
 
-    public void service_eventListRetrievedFromService(List<Contact> result) {
+    public void serviceEventListRetrievedFromService(List<Contact> result) {
         status.setText("Список контактов");
         this.contacts = result;
         this.contactGrid.clear();
@@ -171,35 +171,35 @@ public class ContactListGUI {
         }
     }
 
-    public void service_eventAddContactSuccessful() {
+    public void serviceEventAddContactSuccessful() {
         status.setText("Контакт  добавлен");
         this.contactService.listContacts();
     }
 
-    public void service_eventUpdateSuccessful() {
+    public void serviceEventUpdateSuccessful() {
         status.setText("Контакт был обновлен");
         this.contactService.listContacts();
     }
 
-    public void service_eventRemoveContactSuccessful() {
+    public void serviceEventRemoveContactSuccessful() {
         status.setText("Контакт удален");
         this.contactService.listContacts();
 
     }
 
-    public void service_eventUpdateContactFailed(Throwable caught) {
+    public void serviceEventUpdateContactFailed(Throwable caught) {
         status.setText("Обновление не завершено");
     }
 
-    public void service_eventAddContactFailed(Throwable caught) {
+    public void serviceEventAddContactFailed(Throwable caught) {
         status.setText("Добавление не завершено");
     }
 
-    public void service_eventRemoveContactFailed(Throwable caught) {
+    public void serviceEventRemoveContactFailed(Throwable caught) {
         status.setText("Удаление не завершено");
     }
 
-    public void service_eventListContactsFailed(Throwable caught) {
+    public void serviceEventListContactsFailed(Throwable caught) {
         status.setText("Невозможно получить список контактов");
 
     }

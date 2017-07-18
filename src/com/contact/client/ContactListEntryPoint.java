@@ -26,22 +26,22 @@ public class ContactListEntryPoint implements EntryPoint {
         gui.contactGrid.addClickHandler(new ClickHandler(){
             public void onClick(ClickEvent event) {
                 Cell cellForEvent = gui.contactGrid.getCellForEvent(event);
-                gui.gui_eventContactGridClicked(cellForEvent);
+                gui.guiEventContactGridClicked(cellForEvent);
             }});
 
         gui.addButton.addClickHandler(new ClickHandler(){
             public void onClick(ClickEvent event) {
-                gui.gui_eventAddButtonClicked();
+                gui.guiEventAddButtonClicked();
             }});
 
         gui.updateButton.addClickHandler(new ClickHandler(){
             public void onClick(ClickEvent event) {
-                gui.gui_eventUpdateButtonClicked();
+                gui.guiEventUpdateButtonClicked();
             }});
 
         gui.addNewButton.addClickHandler(new ClickHandler(){
             public void onClick(ClickEvent event) {
-                gui.gui_eventAddNewButtonClicked();
+                gui.guiEventAddNewButtonClicked();
             }});
 
     }
