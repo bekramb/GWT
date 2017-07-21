@@ -3,6 +3,7 @@ package com.contact.client;
 import java.util.List;
 
 
+import com.contact.client.util.DataException;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
@@ -81,12 +82,12 @@ public class ContactListGUI {
     }
 
 
-    private void copyFieldDateToContact() throws Exception {
+    private void copyFieldDateToContact() throws DataException {
         String email = emailField.getText();
         String name = nameField.getText();
         String phone = phoneField.getText();
         if (email.isEmpty() || !email.contains("@") || name.isEmpty() || phone.isEmpty()) {
-            throw new Exception("fields empty");
+            throw new DataException("Fields empty");
         }
         currentContact.setEmail(email);
         currentContact.setName(name);
@@ -119,7 +120,7 @@ public class ContactListGUI {
             copyFieldDateToContact();
             this.phoneField.getText();
             this.contactService.addContact(currentContact);
-        } catch (Exception e) {
+        } catch (DataException e) {
             Window.alert("Заполните поля.");
         }
     }
@@ -130,7 +131,7 @@ public class ContactListGUI {
         try {
             copyFieldDateToContact();
             this.contactService.updateContact(currentContact);
-        } catch (Exception e) {
+        } catch (DataException e) {
             Window.alert("Заполните поля.");
         }
     }
